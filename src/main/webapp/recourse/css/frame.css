@@ -1,0 +1,79 @@
+body{
+    background: url("https://www.cdnjson.com/images/2021/08/10/path-of-light-2027220_1920.jpg") no-repeat;
+    background-size: cover;
+    font-family: Arial, serif;
+    height: 100%;
+    padding: 10px 20%;
+}
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+.header h1{
+    font-size: 50px;
+    font-weight: bolder;
+}
+.header{
+    padding: 18px;
+    text-align: center;
+}
+.NavigationBar{
+    overflow: hidden;
+    background-color: #333;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 1px 1px 0 rgb(0 0 0.2), 0 1px 1px 0 rgb(0 0 0.2);
+    text-align: center;
+}
+.NavigationBar li {
+    padding-left: 10px;
+    padding-right: 10px;
+    display: inline-block;
+}
+.NavigationBar ul{
+    list-style-type: none;
+    overflow: hidden;
+}
+.NavigationBar a{
+    float: left;
+    display: block;
+    font-size: 20px;
+    font-weight: bolder;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;/*去除链接的下划线*/
+}
+.footer {
+    padding: 10px;
+    text-align: center;
+    color: #333;
+    margin-top: 30px;
+}
+
+.body{
+    min-height: 330px;
+    background-color: white;
+    margin-top: 20px;
+    box-shadow: 0 4px 4px 0 rgb(0 0 0.2), 0 4px 4px 0 rgb(0 0 0.2);
+    animation: bodyLoad 2s;
+}
+.body h3{
+    padding: 10px;
+    background-color: #333;
+    text-align: center;
+    color: white;
+}
+/*页面淡入动画效果*/
+@keyframes bodyLoad {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 20%, 0);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+

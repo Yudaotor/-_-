@@ -1,0 +1,12 @@
+.aboutBox {
+    text-align: center;
+    height: 190px;
+    width: 400px;
+    margin: 50px auto 20px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid black;
+    border-radius: 0.5em;
+}

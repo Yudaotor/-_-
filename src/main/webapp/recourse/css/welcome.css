@@ -1,0 +1,27 @@
+.indexBox {
+    text-align: center;
+    height: 190px;
+    width: 400px;
+    margin: 50px auto 20px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid black;
+    border-radius: 0.5em;
+}
+.buttonLogout {
+    background-color: #333;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    color: white;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0.2), 0 2px 4px 0 rgb(0 0 0.2);
+    margin-top: 15px;
+    width: 180px;
+    height: 30px;
+    margin-left: 15px;
+}
+.buttonLogout a{
+    color: white;
+}

@@ -1,0 +1,47 @@
+
+table {
+    width: 90%;
+    margin: 30px auto;
+    border-collapse: collapse;
+}
+th,td {
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+th {
+    background: #eee;
+    font-weight: normal;
+}
+
+tr:hover {
+    background: #f3e0a3;
+    /*设置被鼠标悬浮时的颜色*/
+}
+
+td a {
+    color: #2e6ed0;
+    text-decoration: none;
+}
+
+td a:hover {
+    color: #2e6ed0;
+    text-decoration: underline;
+}
+.button{
+    background-color: #333;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    color: white;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0.2), 0 2px 4px 0 rgb(0 0 0.2);
+    margin-top: 10px;
+    width: 180px;
+    height: 30px;
+    margin-left: 650px;
+}
+#tip{
+    margin-top: 70px;
+    margin-left: 570px;
+}

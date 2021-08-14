@@ -11,7 +11,6 @@ import java.util.List;
 public interface UserDao {
     /**
      * 查找所有用户的信息
-     * @param conn 数据池连接
      * @return 返回值为User的链表
      */
     List<User> selectAll();
@@ -36,5 +35,13 @@ public interface UserDao {
      * @param id 用户编号
      * @return 根据传入id找到的用户信息
      */
-    User getIdInfo(int id);
+    User getUserById(int id);
+
+    /**
+     * 获得用户的信息通过账号和密码
+     * @param username 用户名
+     * @param password 密码
+     * @return User的信息
+     */
+    User getUserByNamePwd(String username, String password);
 }

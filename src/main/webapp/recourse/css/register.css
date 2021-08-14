@@ -1,0 +1,53 @@
+.registerBox{
+    text-align: center;
+    height: 300px;
+    width: 400px;
+    margin: 60px auto 20px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid black;
+    border-radius: 0.5em;
+}
+.registerBox .item{
+    margin-top: 30px;
+    margin-left: 0;
+}
+.registerBox label{
+    margin-left: 80px;
+    line-height:22px;
+
+}
+.registerBox input{
+    float: right;
+    margin-right: 40px;
+    width: 200px;
+    height: 25px;
+}
+#back{
+    color: white;
+    text-decoration: none;
+}
+.buttonRegister {
+    background-color: #333;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    color: white;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0.2), 0 2px 4px 0 rgb(0 0 0.2);
+    margin-top: 15px;
+    width: 180px;
+    height: 30px;
+}
+#pwd {
+    font-size: 5px;
+    margin-left: 14px;
+}
+#eml{
+    font-size: 18px;
+    margin-left: 15px;
+}
+#num{
+    font-size: 15px;
+}

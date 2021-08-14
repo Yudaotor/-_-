@@ -83,7 +83,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public User getIdInfo(int id) {
+    public User getUserById(int id) {
         User user = new User();
         Connection conn = JdbcUtil.getConnection();
         String sql = "select * from userinfo where id=" + id;
@@ -96,6 +96,31 @@ public class UserDaoImpl implements UserDao {
                 user.setId(rs.getInt("id"));
                 user.setUsername(rs.getString("username"));
                 user.setPassword(rs.getString("password"));
+                user.setEmail(rs.getString("email"));
+                user.setCellphone(rs.getString("cellphone"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            assert rs != null;
+            JdbcUtil.release(conn, rs, ps);
+        }
+        return user;
+    }
+
+    @Override
+    public User getUserByNamePwd(String username, String password) {
+        Connection conn = JdbcUtil.getConnection();
+        User user = new User();
+        String sql = "select * from userinfo where username='" + username + "'and password='" + password + "'";
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            if (rs.next()){
+                user.setId(rs.getInt("id"));
+                user.setUsername(rs.getString("username"));
                 user.setEmail(rs.getString("email"));
                 user.setCellphone(rs.getString("cellphone"));
             }
