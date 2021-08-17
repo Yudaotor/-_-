@@ -28,7 +28,7 @@
     <h3>错误</h3>
     <div class="errorBox">
         <br><br>
-        <h1>您尚未登录账号,请先登录再进行操作</h1>
+        <h1>您不是管理员,无法进入管理界面</h1>
         <button type="button" class="buttonError"><a href="${pageContext.request.contextPath }/login.jsp">返回</a></button>
 
     </div>

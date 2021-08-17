@@ -22,11 +22,11 @@
 
 <div class="NavigationBar">
     <ul>
-        <li><a href="welcome.jsp">首页</a></li>
+        <li><a href="welcome1.jsp">首页</a></li>
         <li><a href="#">我的</a></li>
-        <li><a href="group.jsp">小组</a></li>
+        <li><a href="group1.jsp">小组</a></li>
         <li><a href="#">话题</a></li>
-        <li><a href="about.jsp">关于</a></li>
+        <li><a href="about1.jsp">关于</a></li>
     </ul>
 </div>
 

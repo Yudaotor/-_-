@@ -1,6 +1,6 @@
 .loginBox{
     text-align: center;
-    height: 190px;
+    height: 200px;
     width: 400px;
     margin: 50px auto 20px;
     top: 0;
@@ -46,4 +46,8 @@
 #pwd {
     font-size: 5px;
     margin-left: 14px;
+}
+#tip{
+    margin-top: 20px;
+    color: red;
 }

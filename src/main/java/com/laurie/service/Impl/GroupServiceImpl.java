@@ -21,4 +21,10 @@ public class GroupServiceImpl implements GroupService {
     public void create(String name, String info, int memberid) {
         groupDao.createGroup(name, info, memberid);
     }
+
+    @Override
+    public void join(String name, int memberid) {
+        groupDao.joinGroup(name, memberid);
+    }
+
 }

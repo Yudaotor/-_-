@@ -14,8 +14,6 @@
     <p>Only action can change destiny.</p>
 </div>
 
-
-
 <div class="NavigationBar">
     <ul>
         <!--登陆界面不管点什么都是会回到登陆界面-->
@@ -23,18 +21,24 @@
         <li><a href="login.jsp">我的</a></li>
         <li><a href="login.jsp">小组</a></li>
         <li><a href="login.jsp">话题</a></li>
-        <li><a href="login.jsp">管理</a></li>
         <li><a href="login.jsp">关于</a></li>
     </ul>
 </div>
 
 
+<%
+    String message = (String) session.getAttribute("message");
+    if (message == null || message.length() == 0){
+        message = "";
+    }
+%>
 
 <div class="body">
     <h3>登录</h3>
     <div class="loginBox">
         <div class="form">
-            <form action="${pageContext.request.contextPath}/login" method="post">
+            <span id="tip"><%=message%></span>
+            <form action="${pageContext.request.contextPath}/user" method="post">
                 <div class="item">
                     <label for="username">用户名:<i class="iconfont icon-username" ></i></label>
                     <input type="text" placeholder="username" name="username" id="username" required>
@@ -44,6 +48,7 @@
                     <input type="password" placeholder="password" name="password" id="password" required>
                 </div>
                 <br>
+                <input type="hidden" name="method" value="login">
                 <button type="submit" class="buttonLogin">Login</button>
             </form>
         </div>

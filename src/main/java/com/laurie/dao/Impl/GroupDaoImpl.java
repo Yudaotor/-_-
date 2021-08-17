@@ -8,6 +8,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Laurie
@@ -25,16 +27,19 @@ public class GroupDaoImpl implements GroupDao {
             ps = conn.prepareStatement(sql1);
             ps.setString(1, name);
             ps.setString(2, info);
-            int rs = ps.executeUpdate();
-            System.out.println(rs);
+            ps.executeUpdate();
             ps = conn.prepareStatement(sql2);
             ps.setString(1,name);
             ps.setInt(2,memberid);
-            int rs2 = ps.executeUpdate();
-            System.out.println(rs2);
+            ps.executeUpdate();
             conn.commit();
             conn.setAutoCommit(true);
         } catch (SQLException e) {
+            try {
+                conn.rollback();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
             e.printStackTrace();
         }finally {
             assert ps != null;
@@ -44,17 +49,28 @@ public class GroupDaoImpl implements GroupDao {
     }
 
     @Override
-    public void joinGroup(Integer groupId, Integer userId) {
+    public void joinGroup(String groupName, Integer userId) {
         Connection conn = JdbcUtil.getConnection();
-        String sql = "insert into groupmember(groupid,memberid) values(?,?)";
+        String sql1 = "insert into groupmember(groupname,memberid) values(?,?)";
+        String sql2 = "update groupinfo set groupsize=groupsize+1 where groupname=?";
         PreparedStatement ps = null;
-        int rs = 0;
         try {
-            ps = conn.prepareStatement(sql);
-            ps.setInt(1,groupId);
-            ps.setInt(2,userId);
-            rs = ps.executeUpdate();
+            conn.setAutoCommit(false);
+            ps = conn.prepareStatement(sql1);
+            ps.setString(1, groupName);
+            ps.setInt(2, userId);
+            ps.executeUpdate();
+            ps = conn.prepareStatement(sql2);
+            ps.setString(1, groupName);
+            ps.executeUpdate();
+            conn.commit();
+            conn.setAutoCommit(true);
         } catch (SQLException e) {
+            try {
+                conn.rollback();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
             e.printStackTrace();
         }finally {
             assert ps != null;
@@ -66,14 +82,14 @@ public class GroupDaoImpl implements GroupDao {
     public Group getGroupByName(String name) {
         Group group = new Group();
         Connection conn = JdbcUtil.getConnection();
-        String sql = "select * from groupinfo where groupname=" + "''" + name + "'";
+        String sql = "select * from groupinfo where groupname=?";
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
             ps = conn.prepareStatement(sql);
+            ps.setString(1,name);
             rs = ps.executeQuery();
             if (rs.next()){
-                group.setGroupId(rs.getInt("groupid"));
                 group.setGroupName(rs.getString("groupname"));
                 group.setGroupSize(rs.getInt("groupsize"));
                 group.setGroupInfo(rs.getString("groupinfo"));
@@ -85,5 +101,31 @@ public class GroupDaoImpl implements GroupDao {
             JdbcUtil.release(conn, rs, ps);
         }
         return group;
+    }
+
+    @Override
+    public List<Group> selectGroupAll() {
+        List<Group> list = new ArrayList<Group>();
+        Connection conn = JdbcUtil.getConnection();
+        String sql = "select * from groupinfo";
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()){
+                String groupName = rs.getString("groupname");
+                int groupSize = rs.getInt("groupsize");
+                String groupInfo = rs.getString("groupinfo");
+                Group li = new Group (groupName, groupSize, groupInfo);
+                list.add(li);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            assert rs != null;
+            JdbcUtil.release(conn, rs, ps);
+        }
+        return list;
     }
 }

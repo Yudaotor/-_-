@@ -30,7 +30,6 @@
         <li><a href="register.jsp">我的</a></li>
         <li><a href="register.jsp">小组</a></li>
         <li><a href="register.jsp">话题</a></li>
-        <li><a href="register.jsp">管理</a></li>
         <li><a href="register.jsp">关于</a></li>
     </ul>
 </div>
@@ -41,7 +40,7 @@
     <h3>注册</h3>
     <div class="registerBox">
         <div class="form">
-            <form action="${pageContext.request.contextPath}/register" method="post">
+            <form action="${pageContext.request.contextPath}/user" method="post">
                 <div class="item">
                     <label for="username">用户名:<i class="iconfont icon-username"></i></label>
                     <input type="text" name="username" id="username" placeholder="username" required>
@@ -59,6 +58,7 @@
                     <input type="text" name="cellphone" id="cellphone" placeholder="cellphone" required>
                 </div>
                 <br>
+                <input type="hidden" name="method" value="register">
                 <button class="buttonRegister">注册</button>
             </form>
         </div>

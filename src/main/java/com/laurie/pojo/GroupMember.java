@@ -4,7 +4,6 @@ package com.laurie.pojo;
  * @author Laurie
  */
 public class GroupMember {
-    private Integer groupId;
     private Integer memberId;
     private String memberName;
 
@@ -12,18 +11,9 @@ public class GroupMember {
 
     }
 
-    public GroupMember(Integer groupId, Integer memberId, String memberName) {
-        this.groupId = groupId;
+    public GroupMember(Integer memberId, String memberName) {
         this.memberId = memberId;
         this.memberName = memberName;
-    }
-
-    public Integer getGroupId() {
-        return groupId;
-    }
-
-    public void setGroupId(Integer groupId) {
-        this.groupId = groupId;
     }
 
     public Integer getMemberId() {

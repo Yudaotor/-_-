@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Laurie
-  Date: 2021/8/14
-  Time: 11:25
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="com.laurie.pojo.User" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -19,24 +13,24 @@
     <p>Only action can change destiny.</p>
 </div>
 
-
+<%
+    User user = new User();
+    user = (User) session.getAttribute("USER_SESSION");
+%>
 <div class="NavigationBar">
     <ul>
         <li><a href="welcome.jsp">首页</a></li>
-        <li><a href="#">我的</a></li>
-        <li><a href="#">小组</a></li>
+        <li><a href="userManage.jsp">我的</a></li>
+        <li><a href="group.jsp">小组</a></li>
         <li><a href="#">话题</a></li>
         <li><a href="about.jsp">关于</a></li>
     </ul>
 </div>
 
 <div class="body">
-    <h3>关于</h3>
-    <div class="aboutBox">
-        <br>
-        <h2>YUDAOTOR Design by Laurie</h2>
-        <br><br><br>
-        <h2>@软件创新实验室</h2>
+    <h3>用户管理</h3>
+    <div class="userBox">
+
     </div>
 </div>
 

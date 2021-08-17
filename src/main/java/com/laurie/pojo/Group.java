@@ -4,7 +4,6 @@ package com.laurie.pojo;
  * @author Laurie
  */
 public class Group {
-    private Integer groupId;
     private String groupName;
     private Integer groupSize;
     private String groupInfo;
@@ -13,8 +12,7 @@ public class Group {
 
     }
 
-    public Group(Integer groupId, String groupName, Integer groupSize, String groupInfo) {
-        this.groupId = groupId;
+    public Group(String groupName, Integer groupSize, String groupInfo) {
         this.groupName = groupName;
         this.groupSize = groupSize;
         this.groupInfo = groupInfo;
@@ -26,14 +24,6 @@ public class Group {
 
     public void setGroupSize(Integer groupSize) {
         this.groupSize = groupSize;
-    }
-
-    public Integer getGroupId() {
-        return groupId;
-    }
-
-    public void setGroupId(Integer groupId) {
-        this.groupId = groupId;
     }
 
     public String getGroupName() {
@@ -51,4 +41,5 @@ public class Group {
     public void setGroupInfo(String groupInfo) {
         this.groupInfo = groupInfo;
     }
+
 }

@@ -41,7 +41,10 @@ td a:hover {
     height: 30px;
     margin-left: 650px;
 }
+a{
+    color: white;
+}
 #tip{
-    margin-top: 70px;
+    margin-top: 20px;
     margin-left: 570px;
 }

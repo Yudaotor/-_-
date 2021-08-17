@@ -22,11 +22,12 @@
 
 <div class="NavigationBar">
     <ul>
-        <li><a href="welcome.jsp">首页</a></li>
+        <li><a href="welcome1.jsp">首页</a></li>
         <li><a href="#">我的</a></li>
-        <li><a href="group.jsp">小组</a></li>
+        <li><a href="group1.jsp">小组</a></li>
         <li><a href="#">话题</a></li>
-        <li><a href="about.jsp">关于</a></li>
+        <li><a href="#">管理</a></li>
+        <li><a href="about1.jsp">关于</a></li>
     </ul>
 </div>
 
@@ -38,7 +39,7 @@
         <h2>这里是浙江师范大学软件创新实验室官网</h2>
         <form action="${pageContext.request.contextPath}/user" method="post">
             <input type="hidden" name="method" value="logout">
-            <button type="submit" class="buttonLogout"><a href="${pageContext.request.contextPath}/user">退出登录</a></button>
+            <button type="submit" class="buttonLogout">退出登录</button>
         </form>
 
     </div>
