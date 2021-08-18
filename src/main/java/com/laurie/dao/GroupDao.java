@@ -33,7 +33,21 @@ public interface GroupDao {
 
     /**
      * 查找出所有小组的信息
-     * @return 存放着学校小组信息的Group的链表
+     * @return 存放着学习小组信息的Group的链表
      */
     List<Group> selectGroupAll();
+
+    /**
+     *  查找出某用户所在的小组名
+     *  @param memberId 成员编号
+     * @return 存放着当前用户加入的学习小组名称的链表
+     */
+    List<String> selectGroupByMemberId(int memberId);
+
+    /**
+     * 根据用户编号和小组名字来实现退出小组
+     * @param groupName 要退出的小组名字
+     * @param memberId 要退出成员用户编号
+     */
+    void exitGroup(String groupName, int memberId);
 }

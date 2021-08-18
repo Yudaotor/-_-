@@ -27,4 +27,9 @@ public class GroupServiceImpl implements GroupService {
         groupDao.joinGroup(name, memberid);
     }
 
+    @Override
+    public void exit(String name, int memberid) {
+        groupDao.exitGroup(name,memberid);
+    }
+
 }

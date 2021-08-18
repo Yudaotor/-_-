@@ -44,4 +44,10 @@ public interface UserDao {
      * @return User的信息
      */
     User getUserByNamePwd(String username, String password);
+    /**
+     * 修改密码
+     * @param id 需要修改密码的用户的编号
+     * @param password 新密码
+     */
+    void modify(int id, String password);
 }

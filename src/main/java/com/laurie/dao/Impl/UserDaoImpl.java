@@ -15,7 +15,7 @@ public class UserDaoImpl implements UserDao {
     @Override
     public List<User> selectAll() {
         Connection conn = JdbcUtil.getConnection();
-        String sql = "select * from user";
+        String sql = "select * from userinfo";
         List<User> list = new LinkedList<>();
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -131,5 +131,23 @@ public class UserDaoImpl implements UserDao {
             JdbcUtil.release(conn, rs, ps);
         }
         return user;
+    }
+
+    @Override
+    public void modify(int id, String password) {
+        Connection conn = JdbcUtil.getConnection();
+        String sql = "update userinfo set password=? where id=?";
+        PreparedStatement ps = null;
+        try {
+            ps = conn.prepareStatement(sql);
+            ps.setString(1,password);
+            ps.setInt(2,id);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            assert ps != null;
+            JdbcUtil.release(conn, ps);
+        }
     }
 }

@@ -128,4 +128,59 @@ public class GroupDaoImpl implements GroupDao {
         }
         return list;
     }
+
+    @Override
+    public List<String> selectGroupByMemberId(int memberId) {
+        List<String> list = new ArrayList<String>();
+        Connection conn = JdbcUtil.getConnection();
+        String sql = "select * from groupmember where memberid=?";
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            ps = conn.prepareStatement(sql);
+            ps.setInt(1,memberId);
+            rs = ps.executeQuery();
+            while (rs.next()){
+                String groupName = rs.getString("groupname");
+                list.add(groupName);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            assert rs != null;
+            JdbcUtil.release(conn, rs, ps);
+        }
+        return list;
+    }
+
+    @Override
+    public void exitGroup(String groupName, int memberId) {
+        Connection conn = JdbcUtil.getConnection();
+        String sql1 = "delete from groupmember where memberid=? and groupname=?";
+        String sql2 = "update groupinfo set groupsize=groupsize-1 where groupname=?";
+        PreparedStatement ps = null;
+        try {
+            conn.setAutoCommit(false);
+            ps = conn.prepareStatement(sql1);
+            ps.setInt(1, memberId);
+            ps.setString(2, groupName);
+            ps.executeUpdate();
+            ps = conn.prepareStatement(sql2);
+            ps.setString(1, groupName);
+            ps.executeUpdate();
+            conn.commit();
+            conn.setAutoCommit(true);
+        } catch (SQLException e) {
+            try {
+                conn.rollback();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            e.printStackTrace();
+        }finally {
+            assert ps != null;
+            JdbcUtil.release(conn, ps);
+        }
+    }
+
 }
