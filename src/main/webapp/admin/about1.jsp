@@ -23,7 +23,7 @@
 <div class="NavigationBar">
     <ul>
         <li><a href="welcome1.jsp">首页</a></li>
-        <li><a href="#">管理</a></li>
+        <li><a href="manage.jsp">管理</a></li>
         <li><a href="about1.jsp">关于</a></li>
     </ul>
 </div>

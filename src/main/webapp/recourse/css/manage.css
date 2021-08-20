@@ -1,0 +1,39 @@
+.manageBox {
+    text-align: center;
+    height: 190px;
+    width: 400px;
+    margin: 50px auto 20px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid black;
+    border-radius: 0.5em;
+}
+.NavigationBar2{
+    overflow: hidden;
+    background-color: #333;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 1px 1px 0 rgb(0 0 0.2), 0 1px 1px 0 rgb(0 0 0.2);
+    text-align: center;
+}
+.NavigationBar2 li {
+    padding-left: 7px;
+    padding-right: 7px;
+    display: inline-block;
+}
+.NavigationBar2 ul{
+    list-style-type: none;
+    overflow: hidden;
+}
+.NavigationBar2 a{
+    float: left;
+    display: block;
+    font-size: 20px;
+    font-weight: bolder;
+    color: #f6edd4;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;/*去除链接的下划线*/
+}

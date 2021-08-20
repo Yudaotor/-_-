@@ -1,0 +1,58 @@
+.mainBox{
+    text-align: center;
+    min-height: 200px;
+    width: 400px;
+    margin: 50px auto 20px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid black;
+    border-radius: 0.5em;
+}
+.contentBox{
+    font-family: Arial, serif;
+    text-align: center;
+    height: 100px;
+    width: 300px;
+    margin-left: 50px;
+}
+.button {
+    background-color: #333;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    color: white;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0.2), 0 2px 4px 0 rgb(0 0 0.2);
+    margin-top: 15px;
+    width: 180px;
+    height: 30px;
+    margin-left: 600px;
+}
+.button a{
+    color: white;
+    text-decoration: none;
+}
+.chatBox{
+    font-family: Arial, serif;
+    height: 100px;
+    width: 300px;
+    border: 1px solid black;
+    border-radius: 0.5em;
+}
+.button1 {
+    background-color: #333;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    color: white;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0.2), 0 2px 4px 0 rgb(0 0 0.2);
+    margin-top: -40px;
+    width: 180px;
+    height: 30px;
+    margin-left: 350px;
+}
+.button1 a{
+    color: white;
+    text-decoration: none;
+}

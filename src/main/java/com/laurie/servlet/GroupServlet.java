@@ -43,7 +43,7 @@ public class GroupServlet extends HttpServlet {
         int memberid = user.getId();
         GroupService groupService = new GroupServiceImpl();
         groupService.create(groupName,groupInfo,memberid);
-            resp.sendRedirect(req.getContextPath() + "/jsp/group.jsp");
+        resp.sendRedirect(req.getContextPath() + "/jsp/group.jsp");
     }
     protected void join1(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
         String groupName = req.getParameter("groupName");

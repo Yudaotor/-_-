@@ -29,4 +29,14 @@ public interface UserService {
      * @return 是否修改成功
      */
     boolean modify(int id, String password1, String password2);
+
+    /**
+     * 管理员对用户信息进行修改
+     * @param userId 用户编号
+     * @param userName 用户名
+     * @param password 密码
+     * @param email 邮箱
+     * @param cellphone 手机号码
+     */
+    void modifyUser(int userId, String userName, String password, String email, String cellphone);
 }

@@ -23,7 +23,7 @@
         <li><a href="${pageContext.request.contextPath}/jsp/welcome.jsp">首页</a></li>
         <li><a href="${pageContext.request.contextPath}/jsp/userManage.jsp">我的</a></li>
         <li><a href="${pageContext.request.contextPath}/jsp/group.jsp">小组</a></li>
-        <li><a href="#">话题</a></li>
+        <li><a href="${pageContext.request.contextPath}/jsp/topic.jsp">话题</a></li>
         <li><a href="${pageContext.request.contextPath}/jsp/about.jsp">关于</a></li>
     </ul>
 </div>
@@ -31,7 +31,7 @@
     <ul>
         <li><a href="passwordManage.jsp">密码管理</a></li>
         <li><a href="groupManage.jsp">小组管理</a></li>
-        <li><a href="#">话题管理</a></li>
+        <li><a href="topicManage.jsp">话题管理</a></li>
     </ul>
 </div>
 

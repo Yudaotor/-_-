@@ -1,10 +1,10 @@
-<%@ page import="com.laurie.pojo.User" %>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>用户管理</title>
+    <title>讨论发表</title>
     <link rel="stylesheet" href="../recourse/css/frame.css">
-    <link rel="stylesheet" href="../recourse/css/userManage.css">
+    <link rel="stylesheet" href="../recourse/css/talkCreate.css">
     <link rel="icon" href="https://cdnjson.com/images/2021/08/06/-SVG-66.png" type="image/x-icon" />
 </head>
 <body>
@@ -13,10 +13,7 @@
     <p>Only action can change destiny.</p>
 </div>
 
-<%
-    User user = new User();
-    user = (User) session.getAttribute("USER_SESSION");
-%>
+
 <div class="NavigationBar">
     <ul>
         <li><a href="welcome.jsp">首页</a></li>
@@ -27,22 +24,20 @@
     </ul>
 </div>
 
-<div class="NavigationBar2">
-    <ul>
-        <li><a href="../user/passwordManage.jsp">密码管理</a></li>
-        <li><a href="../user/groupManage.jsp">小组管理</a></li>
-        <li><a href="../user/topicManage.jsp">话题管理</a></li>
-    </ul>
-</div>
-
 <div class="body">
-    <h3>用户信息</h3>
-    <div class="userBox">
-        <div style="font-size: 30px">
-            <br>用户<%=user.getUsername()%><br>你好,欢迎来到用户管理界面!<br><br>
+    <h3>发表讨论</h3>
+    <div class="talkBox">
+        <div class="form">
+            <form method="post" action="${pageContext.request.contextPath}/talk">
+                <div class="item">
+                    <label for="talkContent">评论内容:</label>
+                    <input type="text" name="talkContent" id="talkContent">
+                </div>
+                <br>
+                <input type="hidden" name="method" value="create1">
+                <button type="submit" class="buttonCreate">发表</button>
+            </form>
         </div>
-        <div style="font-size: 25px">请根据上方导航栏进行操作</div>
-
     </div>
 </div>
 

@@ -3,12 +3,15 @@
 <%@ page import="com.laurie.pojo.Group" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.laurie.pojo.User" %>
+<%@ page import="com.laurie.pojo.Topic" %>
+<%@ page import="com.laurie.dao.TopicDao" %>
+<%@ page import="com.laurie.dao.Impl.TopicDaoImpl" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>用户小组管理</title>
+    <title>话题管理</title>
     <link rel="stylesheet" href="../recourse/css/frame.css">
-    <link rel="stylesheet" href="../recourse/css/groupManage.css">
+    <link rel="stylesheet" href="../recourse/css/topicManage.css">
     <link rel="icon" href="https://cdnjson.com/images/2021/08/06/-SVG-66.png" type="image/x-icon" />
 </head>
 <body>
@@ -35,34 +38,44 @@
     </ul>
 </div>
 
+
+
 <div class="body">
-    <h3>小组管理</h3>
-        <div style="font-size: 20px">
-            您当前所加入的小组有:
-        </div>
+    <h3>话题管理</h3>
     <table>
         <tr>
-            <th>小组名称</th>
+            <th>话题标题</th>
+            <th>发起人</th>
+            <th>所属小组</th>
             <th>操作</th>
         </tr>
         <%
-            User user = new User();
-            user = (User) session.getAttribute("USER_SESSION");
-            int memberId = user.getId();
+            TopicDao topicDao = new TopicDaoImpl();
             GroupDao groupDao = new GroupDaoImpl();
-            List<String> list = groupDao.selectGroupByMemberId(memberId);
-            for (String li : list){
+            User user = (User) session.getAttribute("USER_SESSION");
+            int memberId = user.getId();
+            List<String> group = groupDao.selectGroupByMemberId(memberId);
+            for(String gr:group){
+                List<Topic> list = topicDao.selectTopicByGroupName(gr);
+
+                for (Topic li : list){
 
         %>
-        <form action="${pageContext.request.contextPath}/group" method="post" id="<%=li%>">
-            <input type="hidden" name="method" value="exit">
-            <input type="hidden" name="groupName" value="<%=li%>">
+        <form action="${pageContext.request.contextPath}/topic" method="post" id="话题<%=li.getTopicId()%>">
+            <input type="hidden" name="method" value="delete">
+            <input type="hidden" name="topicId" value="<%=li.getTopicId()%>">
         </form>
 
         <tr>
-            <td><%=li%></td>
-            <td><a href="javascript:document:<%=li%>.submit();">退出</a></td>
+            <td><%=li.getTopicName()%></td>
+            <td><%=li.getUserName()%></td>
+            <td><%=gr%></td>
+            <td><a href="javascript:document:话题<%=li.getTopicId()%>.submit();">删除</a></td>
         </tr>
+        <%
+            }
+        %>
+
         <%
             }
         %>

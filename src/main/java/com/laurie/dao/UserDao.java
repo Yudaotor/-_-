@@ -50,4 +50,27 @@ public interface UserDao {
      * @param password 新密码
      */
     void modify(int id, String password);
+
+    /**
+     * 获得用户的信息通过账号和密码
+     * @param username 用户名
+     * @return User的信息
+     */
+    User getUserByName(String username);
+
+    /**
+     * 根据编号删除用户
+     * @param userId 用户编号
+     */
+    void deleteUserById(int userId);
+
+    /**
+     * 管理员对用户信息进行修改
+     * @param userId 用户编号
+     * @param userName 用户名
+     * @param password 密码
+     * @param email 邮箱
+     * @param cellphone 手机号码
+     */
+    void modifyUser(int userId, String userName, String password, String email, String cellphone);
 }

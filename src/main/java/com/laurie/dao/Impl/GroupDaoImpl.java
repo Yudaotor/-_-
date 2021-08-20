@@ -183,4 +183,33 @@ public class GroupDaoImpl implements GroupDao {
         }
     }
 
+    @Override
+    public void deleteGroup(String groupName) {
+        Connection conn = JdbcUtil.getConnection();
+        String sql1 = "delete from groupmember where groupname=?";
+        String sql2 = "delete from groupinfo where groupname=?";
+        PreparedStatement ps = null;
+        try {
+            conn.setAutoCommit(false);
+            ps = conn.prepareStatement(sql1);
+            ps.setString(1, groupName);
+            ps.executeUpdate();
+            ps = conn.prepareStatement(sql2);
+            ps.setString(1, groupName);
+            ps.executeUpdate();
+            conn.commit();
+            conn.setAutoCommit(true);
+        } catch (SQLException e) {
+            try {
+                conn.rollback();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            e.printStackTrace();
+        }finally {
+            assert ps != null;
+            JdbcUtil.release(conn, ps);
+        }
+    }
+
 }

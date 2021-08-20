@@ -2,9 +2,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>小组创建</title>
+    <title>话题创建</title>
     <link rel="stylesheet" href="../recourse/css/frame.css">
-    <link rel="stylesheet" href="../recourse/css/groupCreate.css">
+    <link rel="stylesheet" href="../recourse/css/topicCreate.css">
     <link rel="icon" href="https://cdnjson.com/images/2021/08/06/-SVG-66.png" type="image/x-icon" />
 </head>
 <body>
@@ -25,17 +25,21 @@
 </div>
 
 <div class="body">
-    <h3>创建学习小组</h3>
-    <div class="groupBox">
+    <h3>创建话题</h3>
+    <div class="topicBox">
         <div class="form">
-            <form method="post" action="${pageContext.request.contextPath}/group">
+            <form method="post" action="${pageContext.request.contextPath}/topic">
                 <div class="item">
-                    <label for="groupName">小组名称:</label>
-                    <input type="text" name="groupName" id="groupName" placeholder="group name">
+                    <label for="groupName">所属小组:</label>
+                    <input type="text" name="groupName" id="groupName" placeholder="group name>">
                 </div>
                 <div class="item">
-                    <label for="groupInfo">小组简介:</label>
-                    <input type="text" name="groupInfo" id="groupInfo">
+                    <label for="topicName">话题标题:</label>
+                    <input type="text" name="topicName" id="topicName" placeholder="topic name>">
+                </div>
+                <div class="item">
+                    <label for="topicContent">话题内容:</label>
+                    <input type="text" name="topicContent" id="topicContent">
                 </div>
                 <br>
                 <input type="hidden" name="method" value="create">

@@ -50,4 +50,10 @@ public interface GroupDao {
      * @param memberId 要退出成员用户编号
      */
     void exitGroup(String groupName, int memberId);
+
+    /**
+     * 删除小组
+     * @param groupName 小组名称
+     */
+    void deleteGroup(String groupName);
 }

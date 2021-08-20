@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Laurie
-  Date: 2021/8/14
-  Time: 11:25
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -25,7 +19,7 @@
         <li><a href="welcome.jsp">首页</a></li>
         <li><a href="userManage.jsp">我的</a></li>
         <li><a href="group.jsp">小组</a></li>
-        <li><a href="#">话题</a></li>
+        <li><a href="topic.jsp">话题</a></li>
         <li><a href="about.jsp">关于</a></li>
     </ul>
 </div>

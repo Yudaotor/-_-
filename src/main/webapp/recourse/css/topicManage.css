@@ -1,0 +1,57 @@
+table {
+    width: 90%;
+    margin: 30px auto;
+    border-collapse: collapse;
+}
+th,td {
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+th {
+    background: #eee;
+    font-weight: normal;
+}
+
+tr:hover {
+    background: #f3e0a3;
+    /*设置被鼠标悬浮时的颜色*/
+}
+
+td a {
+    color: #2e6ed0;
+    text-decoration: none;
+}
+
+td a:hover {
+    color: #2e6ed0;
+    text-decoration: underline;
+}
+.NavigationBar2{
+    overflow: hidden;
+    background-color: #333;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 1px 1px 0 rgb(0 0 0.2), 0 1px 1px 0 rgb(0 0 0.2);
+    text-align: center;
+}
+.NavigationBar2 li {
+    padding-left: 7px;
+    padding-right: 7px;
+    display: inline-block;
+}
+.NavigationBar2 ul{
+    list-style-type: none;
+    overflow: hidden;
+}
+.NavigationBar2 a{
+    float: left;
+    display: block;
+    font-size: 20px;
+    font-weight: bolder;
+    color: #f6edd4;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;/*去除链接的下划线*/
+}

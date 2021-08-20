@@ -3,6 +3,7 @@
 <%@ page import="com.laurie.pojo.Group" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.laurie.pojo.User" %>
+<%@ page import="com.laurie.pojo.Topic" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -20,48 +21,41 @@
 
 <div class="NavigationBar">
     <ul>
-        <li><a href="${pageContext.request.contextPath}/jsp/welcome.jsp">首页</a></li>
-        <li><a href="${pageContext.request.contextPath}/jsp/userManage.jsp">我的</a></li>
-        <li><a href="${pageContext.request.contextPath}/jsp/group.jsp">小组</a></li>
-        <li><a href="${pageContext.request.contextPath}/jsp/topic.jsp">话题</a></li>
-        <li><a href="${pageContext.request.contextPath}/jsp/about.jsp">关于</a></li>
+        <li><a href="welcome1.jsp">首页</a></li>
+        <li><a href="manage.jsp">管理</a></li>
+        <li><a href="about1.jsp">关于</a></li>
     </ul>
 </div>
 <div class="NavigationBar2">
     <ul>
-        <li><a href="passwordManage.jsp">密码管理</a></li>
+        <li><a href="userManage.jsp">用户管理</a></li>
         <li><a href="groupManage.jsp">小组管理</a></li>
-        <li><a href="topicManage.jsp">话题管理</a></li>
     </ul>
 </div>
 
 <div class="body">
     <h3>小组管理</h3>
-        <div style="font-size: 20px">
-            您当前所加入的小组有:
-        </div>
     <table>
         <tr>
             <th>小组名称</th>
+            <th>小组人数</th>
             <th>操作</th>
         </tr>
         <%
-            User user = new User();
-            user = (User) session.getAttribute("USER_SESSION");
-            int memberId = user.getId();
             GroupDao groupDao = new GroupDaoImpl();
-            List<String> list = groupDao.selectGroupByMemberId(memberId);
-            for (String li : list){
+            List<Group> list = groupDao.selectGroupAll();
+            for (Group li : list){
 
         %>
-        <form action="${pageContext.request.contextPath}/group" method="post" id="<%=li%>">
-            <input type="hidden" name="method" value="exit">
-            <input type="hidden" name="groupName" value="<%=li%>">
+        <form action="${pageContext.request.contextPath}/manage" method="post" id="<%=li.getGroupName()%>">
+            <input type="hidden" name="method" value="deleteGroup">
+            <input type="hidden" name="groupName" value="<%=li.getGroupName()%>">
         </form>
 
         <tr>
-            <td><%=li%></td>
-            <td><a href="javascript:document:<%=li%>.submit();">退出</a></td>
+            <td><%=li.getGroupName()%></td>
+            <td><%=li.getGroupSize()%></td>
+            <td><a href="javascript:document:<%=li.getGroupName()%>.submit();">删除</a></td>
         </tr>
         <%
             }

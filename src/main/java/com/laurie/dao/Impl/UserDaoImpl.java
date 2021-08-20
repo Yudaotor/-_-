@@ -150,4 +150,69 @@ public class UserDaoImpl implements UserDao {
             JdbcUtil.release(conn, ps);
         }
     }
+
+    @Override
+    public User getUserByName(String username) {
+        Connection conn = JdbcUtil.getConnection();
+        User user = new User();
+        String sql = "select * from userinfo where username=?";
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            ps = conn.prepareStatement(sql);
+            ps.setString(1,username);
+            rs = ps.executeQuery();
+            if (rs.next()){
+                user.setId(rs.getInt("id"));
+                user.setPassword(rs.getString("password"));
+                user.setUsername(rs.getString("username"));
+                user.setEmail(rs.getString("email"));
+                user.setCellphone(rs.getString("cellphone"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            assert rs != null;
+            JdbcUtil.release(conn, rs, ps);
+        }
+        return user;
+    }
+
+    @Override
+    public void deleteUserById(int userId) {
+        Connection conn = JdbcUtil.getConnection();
+        String sql = "delete from userinfo where id=?";
+        PreparedStatement ps = null;
+        try {
+            ps = conn.prepareStatement(sql);
+            ps.setInt(1,userId);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            assert ps != null;
+            JdbcUtil.release(conn, ps);
+        }
+    }
+
+    @Override
+    public void modifyUser(int userId, String userName, String password, String email, String cellphone) {
+        Connection conn = JdbcUtil.getConnection();
+        String sql = "update userinfo set username=? , password=? , email=? , cellphone=? where id=?";
+        PreparedStatement ps = null;
+        try {
+            ps = conn.prepareStatement(sql);
+            ps.setString(1,userName);
+            ps.setString(2,password);
+            ps.setString(3,email);
+            ps.setString(4,cellphone);
+            ps.setInt(5,userId);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            assert ps != null;
+            JdbcUtil.release(conn, ps);
+        }
+    }
 }

@@ -24,7 +24,7 @@
         <li><a href="welcome.jsp">首页</a></li>
         <li><a href="userManage.jsp">我的</a></li>
         <li><a href="group.jsp">小组</a></li>
-        <li><a href="#">话题</a></li>
+        <li><a href="topic.jsp">话题</a></li>
         <li><a href="about.jsp">关于</a></li>
     </ul>
 </div>

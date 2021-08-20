@@ -6,7 +6,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>关于</title>
+    <title>小组加入</title>
     <link rel="stylesheet" href="../recourse/css/frame.css">
     <link rel="stylesheet" href="../recourse/css/groupJoin.css">
     <link rel="icon" href="https://cdnjson.com/images/2021/08/06/-SVG-66.png" type="image/x-icon" />
@@ -24,7 +24,7 @@
         <li><a href="welcome.jsp">首页</a></li>
         <li><a href="userManage.jsp">我的</a></li>
         <li><a href="group.jsp">小组</a></li>
-        <li><a href="#">话题</a></li>
+        <li><a href="topic.jsp">话题</a></li>
         <li><a href="about.jsp">关于</a></li>
     </ul>
 </div>

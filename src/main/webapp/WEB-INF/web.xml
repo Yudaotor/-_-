@@ -58,4 +58,34 @@
         <url-pattern>/group</url-pattern>
     </servlet-mapping>
 
+    <!--配置话题servlet-->
+    <servlet>
+        <servlet-name>TopicServlet</servlet-name>
+        <servlet-class>com.laurie.servlet.TopicServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TopicServlet</servlet-name>
+        <url-pattern>/topic</url-pattern>
+    </servlet-mapping>
+
+    <!--配置讨论servlet-->
+    <servlet>
+        <servlet-name>TalkServlet</servlet-name>
+        <servlet-class>com.laurie.servlet.TalkServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TalkServlet</servlet-name>
+        <url-pattern>/talk</url-pattern>
+    </servlet-mapping>
+
+    <!--配置管理servlet-->
+    <servlet>
+        <servlet-name>ManageServlet</servlet-name>
+        <servlet-class>com.laurie.servlet.ManageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ManageServlet</servlet-name>
+        <url-pattern>/manage</url-pattern>
+    </servlet-mapping>
+
 </web-app>

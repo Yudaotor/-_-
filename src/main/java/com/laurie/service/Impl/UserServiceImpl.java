@@ -41,4 +41,9 @@ public class UserServiceImpl implements UserService {
         }
         return flag;
     }
+
+    @Override
+    public void modifyUser(int userId, String userName, String password, String email, String cellphone) {
+        userDao.modifyUser(userId,userName,password,email,cellphone);
+    }
 }

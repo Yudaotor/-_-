@@ -1,0 +1,65 @@
+.modifyBox{
+    text-align: center;
+    height: 200px;
+    width: 400px;
+    margin: 50px auto 20px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid black;
+    border-radius: 0.5em;
+}
+.modifyBox .item{
+    margin-top: 30px;
+    margin-left: 0;
+}
+.modifyBox label{
+    margin-left: 80px;
+    line-height:22px;
+
+}
+.modifyBox input{
+    float: right;
+    margin-right: 40px;
+    width: 200px;
+    height: 25px;
+}
+.buttonModify {
+    background-color: #333;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    color: white;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0.2), 0 2px 4px 0 rgb(0 0 0.2);
+    margin-top: 15px;
+    width: 180px;
+    height: 30px;
+}
+.NavigationBar2{
+    overflow: hidden;
+    background-color: #333;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 1px 1px 0 rgb(0 0 0.2), 0 1px 1px 0 rgb(0 0 0.2);
+    text-align: center;
+}
+.NavigationBar2 li {
+    padding-left: 7px;
+    padding-right: 7px;
+    display: inline-block;
+}
+.NavigationBar2 ul{
+    list-style-type: none;
+    overflow: hidden;
+}
+.NavigationBar2 a{
+    float: left;
+    display: block;
+    font-size: 20px;
+    font-weight: bolder;
+    color: #f6edd4;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;/*去除链接的下划线*/
+}

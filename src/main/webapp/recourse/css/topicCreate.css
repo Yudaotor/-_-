@@ -1,6 +1,6 @@
-.indexBox {
+.topicBox{
     text-align: center;
-    height: 190px;
+    height: 200px;
     width: 400px;
     margin: 50px auto 20px;
     top: 0;
@@ -10,8 +10,22 @@
     border: 1px solid black;
     border-radius: 0.5em;
 }
+.topicBox .item{
+    margin-top: 30px;
+    margin-left: 0;
+}
+.topicBox label{
+    margin-left: 80px;
+    line-height:22px;
 
-.buttonLogout {
+}
+.topicBox input{
+    float: right;
+    margin-right: 40px;
+    width: 200px;
+    height: 25px;
+}
+.buttonCreate {
     background-color: #333;
     border: none;
     cursor: pointer;
@@ -21,10 +35,4 @@
     margin-top: 15px;
     width: 180px;
     height: 30px;
-    margin-left: 15px;
-}
-
-.buttonLogout a{
-    color: white;
-    text-decoration: none;
 }
