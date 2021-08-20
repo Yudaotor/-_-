@@ -4,7 +4,7 @@
 <head>
     <title>讨论发表</title>
     <link rel="stylesheet" href="../recourse/css/frame.css">
-    <link rel="stylesheet" href="../recourse/css/talkCreate.css">
+    <link rel="stylesheet" href="../recourse/css/talkCreate1.css">
     <link rel="icon" href="https://cdnjson.com/images/2021/08/06/-SVG-66.png" type="image/x-icon" />
 </head>
 <body>

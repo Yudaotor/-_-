@@ -51,13 +51,9 @@
         </tr>
         <%
             TopicDao topicDao = new TopicDaoImpl();
-            GroupDao groupDao = new GroupDaoImpl();
             User user = (User) session.getAttribute("USER_SESSION");
             int memberId = user.getId();
-            List<String> group = groupDao.selectGroupByMemberId(memberId);
-            for(String gr:group){
-                List<Topic> list = topicDao.selectTopicByGroupName(gr);
-
+            List<Topic> list = topicDao.selectTopicByUserId(memberId);
                 for (Topic li : list){
 
         %>
@@ -69,16 +65,13 @@
         <tr>
             <td><%=li.getTopicName()%></td>
             <td><%=li.getUserName()%></td>
-            <td><%=gr%></td>
+            <td><%=li.getGroupName()%></td>
             <td><a href="javascript:document:话题<%=li.getTopicId()%>.submit();">删除</a></td>
         </tr>
         <%
             }
         %>
 
-        <%
-            }
-        %>
     </table>
 
 </div>

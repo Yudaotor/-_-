@@ -73,7 +73,7 @@ public class UserServlet extends HttpServlet {
     }
     protected void logout(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
         req.getSession().removeAttribute("USER_SESSION");
-        resp.sendRedirect("login.jsp");
+        resp.sendRedirect(req.getContextPath() + "login.jsp");
     }
     protected void modifyPwd(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
         String password1 = req.getParameter("password1");
